@@ -1,9 +1,636 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-  <title>My Website</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assistante Virtuelle | Services Professionnels</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #6366f1;
+      --primary-dark: #4f46e5;
+      --secondary-color: #f472b6;
+      --accent-color: #06b6d4;
+      --text-dark: #1f2937;
+      --text-light: #6b7280;
+      --bg-light: #f9fafb;
+      --white: #ffffff;
+      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: var(--white);
+      box-shadow: var(--shadow);
+      z-index: 1000;
+      padding: 1rem 2rem;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary-color);
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+      padding: 6rem 2rem 2rem;
+      text-align: center;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      color: var(--white);
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      opacity: 0.95;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: var(--white);
+      color: var(--primary-color);
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    /* Section Styles */
+    section {
+      padding: 5rem 2rem;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--text-dark);
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--text-light);
+      font-size: 1.1rem;
+      margin-bottom: 3rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* About Section */
+    #about {
+      background: var(--bg-light);
+    }
+
+    .about-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .about-content p {
+      font-size: 1.1rem;
+      color: var(--text-light);
+      margin-bottom: 1.5rem;
+    }
+
+    /* Services Section */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .service-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .service-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      font-size: 1.5rem;
+    }
+
+    .service-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+      color: var(--text-dark);
+    }
+
+    .service-card p {
+      color: var(--text-light);
+      font-size: 0.95rem;
+    }
+
+    .service-card ul {
+      list-style: none;
+      margin-top: 1rem;
+    }
+
+    .service-card ul li {
+      padding: 0.5rem 0;
+      color: var(--text-light);
+      font-size: 0.9rem;
+      position: relative;
+      padding-left: 1.5rem;
+    }
+
+    .service-card ul li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--primary-color);
+      font-weight: bold;
+    }
+
+    /* Pricing Section */
+    #tarifs {
+      background: var(--bg-light);
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .pricing-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 2.5rem;
+      box-shadow: var(--shadow);
+      text-align: center;
+      position: relative;
+      transition: transform 0.3s ease;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .pricing-card.featured {
+      border: 2px solid var(--primary-color);
+    }
+
+    .pricing-card.featured::before {
+      content: "Populaire";
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--primary-color);
+      color: var(--white);
+      padding: 0.25rem 1rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    .pricing-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-dark);
+    }
+
+    .pricing-card .price {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      margin: 1rem 0;
+    }
+
+    .pricing-card .price span {
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--text-light);
+    }
+
+    .pricing-card .description {
+      color: var(--text-light);
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    .pricing-card ul {
+      list-style: none;
+      margin-bottom: 2rem;
+      text-align: left;
+    }
+
+    .pricing-card ul li {
+      padding: 0.75rem 0;
+      color: var(--text-light);
+      border-bottom: 1px solid #e5e7eb;
+      position: relative;
+      padding-left: 1.75rem;
+    }
+
+    .pricing-card ul li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--primary-color);
+      font-weight: bold;
+    }
+
+    .pricing-button {
+      display: inline-block;
+      width: 100%;
+      padding: 1rem;
+      background: var(--primary-color);
+      color: var(--white);
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+
+    .pricing-button:hover {
+      background: var(--primary-dark);
+    }
+
+    /* Contact Section */
+    #contact {
+      background: var(--white);
+    }
+
+    .contact-content {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      padding: 1.5rem;
+      background: var(--bg-light);
+      border-radius: 12px;
+    }
+
+    .contact-item span {
+      font-size: 1.5rem;
+    }
+
+    .contact-item p {
+      color: var(--text-dark);
+      font-weight: 500;
+    }
+
+    .contact-item a {
+      color: var(--primary-color);
+      text-decoration: none;
+    }
+
+    .contact-item a:hover {
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--text-dark);
+      color: var(--white);
+      text-align: center;
+      padding: 2rem;
+    }
+
+    footer p {
+      opacity: 0.8;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .section-title {
+        font-size: 1.75rem;
+      }
+
+      section {
+        padding: 3rem 1rem;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>Hello from GitHub Pages</h1>
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <a href="#" class="logo">VA Services</a>
+      <ul class="nav-links">
+        <li><a href="#about">À propos</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#tarifs">Tarifs</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Votre Assistante Virtuelle de Confiance</h1>
+      <p>Je vous accompagne dans la gestion de vos tâches administratives et organisationnelles pour vous permettre de vous concentrer sur l'essentiel : développer votre activité.</p>
+      <a href="#contact" class="cta-button">Me Contacter</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2 class="section-title">À Propos</h2>
+    <p class="section-subtitle">Une professionnelle à votre service</p>
+    <div class="about-content">
+      <p>Assistante virtuelle passionnée et rigoureuse, je propose mes services aux entrepreneurs, TPE et PME souhaitant déléguer leurs tâches administratives et organisationnelles.</p>
+      <p>Mon objectif est de vous faire gagner du temps et de l'efficacité en prenant en charge les missions qui vous éloignent de votre cœur de métier. Disponible, réactive et organisée, je m'adapte à vos besoins spécifiques pour vous offrir un accompagnement sur mesure.</p>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services">
+    <h2 class="section-title">Mes Services</h2>
+    <p class="section-subtitle">Des solutions adaptées à vos besoins</p>
+    <div class="services-grid">
+      <!-- Service 1 -->
+      <div class="service-card">
+        <div class="service-icon">📋</div>
+        <h3>Gestion Administrative</h3>
+        <p>Prenez du recul sur vos tâches quotidiennes</p>
+        <ul>
+          <li>Traitement des emails et courriers</li>
+          <li>Gestion d'agenda et prise de rendez-vous</li>
+          <li>Rédaction de documents</li>
+          <li>Saisie et mise en forme de données</li>
+          <li>Classement et archivage</li>
+        </ul>
+      </div>
+
+      <!-- Service 2 -->
+      <div class="service-card">
+        <div class="service-icon">💼</div>
+        <h3>Support Commercial</h3>
+        <p>Optimisez votre relation client</p>
+        <ul>
+          <li>Création et envoi de devis</li>
+          <li>Suivi des factures et relances</li>
+          <li>Gestion de la base clients</li>
+          <li>Préparation de présentations</li>
+          <li>Suivi des commandes</li>
+        </ul>
+      </div>
+
+      <!-- Service 3 -->
+      <div class="service-card">
+        <div class="service-icon">📱</div>
+        <h3>Community Management</h3>
+        <p>Développez votre présence en ligne</p>
+        <ul>
+          <li>Création de contenus</li>
+          <li>Planification des publications</li>
+          <li>Animation des réseaux sociaux</li>
+          <li>Réponse aux commentaires</li>
+          <li>Veille concurrentielle</li>
+        </ul>
+      </div>
+
+      <!-- Service 4 -->
+      <div class="service-card">
+        <div class="service-icon">🗓️</div>
+        <h3>Organisation d'Événements</h3>
+        <p>Des événements réussis sans stress</p>
+        <ul>
+          <li>Recherche de prestataires</li>
+          <li>Gestion des invitations</li>
+          <li>Coordination logistique</li>
+          <li>Suivi des inscriptions</li>
+          <li>Préparation des supports</li>
+        </ul>
+      </div>
+
+      <!-- Service 5 -->
+      <div class="service-card">
+        <div class="service-icon">✈️</div>
+        <h3>Gestion des Voyages</h3>
+        <p>Voyagez l'esprit tranquille</p>
+        <ul>
+          <li>Recherche et réservation de vols</li>
+          <li>Réservation d'hôtels</li>
+          <li>Organisation d'itinéraires</li>
+          <li>Gestion des notes de frais</li>
+          <li>Préparation des documents</li>
+        </ul>
+      </div>
+
+      <!-- Service 6 -->
+      <div class="service-card">
+        <div class="service-icon">🔧</div>
+        <h3>Services Sur Mesure</h3>
+        <p>Des solutions personnalisées</p>
+        <ul>
+          <li>Projets ponctuels</li>
+          <li>Missions spécifiques</li>
+          <li>Accompagnement personnalisé</li>
+          <li>Formation outils numériques</li>
+          <li>Consulting organisation</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section id="tarifs">
+    <h2 class="section-title">Mes Tarifs</h2>
+    <p class="section-subtitle">Des formules flexibles adaptées à chaque besoin</p>
+    <div class="pricing-grid">
+      <!-- Pricing 1 -->
+      <div class="pricing-card">
+        <h3>À l'heure</h3>
+        <div class="price">35€ <span>/heure</span></div>
+        <p class="description">Idéal pour des missions ponctuelles</p>
+        <ul>
+          <li>Sans engagement</li>
+          <li>Facturation au temps réel</li>
+          <li>Parfait pour tester mes services</li>
+          <li>Flexibilité maximale</li>
+        </ul>
+        <a href="#contact" class="pricing-button">Choisir</a>
+      </div>
+
+      <!-- Pricing 2 -->
+      <div class="pricing-card featured">
+        <h3>Pack Mensuel</h3>
+        <div class="price">450€ <span>/mois</span></div>
+        <p class="description">15 heures par mois</p>
+        <ul>
+          <li>Économisez 75€/mois</li>
+          <li>Heures reportables</li>
+          <li>Priorité de traitement</li>
+          <li>Rapport d'activité mensuel</li>
+        </ul>
+        <a href="#contact" class="pricing-button">Choisir</a>
+      </div>
+
+      <!-- Pricing 3 -->
+      <div class="pricing-card">
+        <h3>Pack Premium</h3>
+        <div class="price">800€ <span>/mois</span></div>
+        <p class="description">30 heures par mois</p>
+        <ul>
+          <li>Meilleur rapport qualité/prix</li>
+          <li>Heures reportables</li>
+          <li>Disponibilité garantie</li>
+          <li>Suivi personnalisé</li>
+        </ul>
+        <a href="#contact" class="pricing-button">Choisir</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2 class="section-title">Me Contacter</h2>
+    <p class="section-subtitle">Discutons de vos besoins</p>
+    <div class="contact-content">
+      <p>N'hésitez pas à me contacter pour discuter de votre projet. Je vous répondrai dans les plus brefs délais.</p>
+      <div class="contact-info">
+        <div class="contact-item">
+          <span>📧</span>
+          <p><a href="mailto:contact@votresite.com">contact@votresite.com</a></p>
+        </div>
+        <div class="contact-item">
+          <span>📞</span>
+          <p><a href="tel:+33600000000">+33 6 00 00 00 00</a></p>
+        </div>
+        <div class="contact-item">
+          <span>💬</span>
+          <p>Réponse garantie sous 24h</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 VA Services - Assistante Virtuelle. Tous droits réservés.</p>
+  </footer>
+
+  <!-- Smooth Scroll Script -->
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
 </body>
 </html>
