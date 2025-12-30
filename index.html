@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AssistPro Digital | Assistante Virtuelle - Anabela QUEIROS</title>
+  <title>AssistPro Digital | Office Manager Freelance - Anabela QUEIROS | 30 ans d'expérience L'Oréal</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -104,6 +104,26 @@
       opacity: 0.95;
     }
 
+    .hero-tag {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+      opacity: 0.9;
+      font-weight: 500;
+    }
+
+    /* Banner Section */
+    .banner-section {
+      padding: 0;
+      background: #fdf3e7;
+    }
+
+    .banner-image {
+      width: 100%;
+      max-width: 1200px;
+      display: block;
+      margin: 0 auto;
+    }
+
     .cta-button {
       display: inline-block;
       background: var(--white);
@@ -158,6 +178,113 @@
       font-size: 1.1rem;
       color: var(--text-light);
       margin-bottom: 1.5rem;
+    }
+
+    .strengths-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .strength-item {
+      background: var(--white);
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      text-align: left;
+    }
+
+    .strength-icon {
+      font-size: 2rem;
+      display: block;
+      margin-bottom: 0.75rem;
+    }
+
+    .strength-item h4 {
+      color: var(--text-dark);
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .strength-item p {
+      font-size: 0.95rem;
+      margin-bottom: 0;
+    }
+
+    /* Results Section */
+    #resultats {
+      background: var(--white);
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .result-card {
+      background: var(--bg-light);
+      padding: 2rem;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .result-card.highlight {
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      color: var(--white);
+    }
+
+    .result-card.highlight .result-number {
+      color: var(--white);
+    }
+
+    .result-card.highlight p {
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .result-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      margin-bottom: 0.75rem;
+    }
+
+    .result-card p {
+      color: var(--text-light);
+      font-size: 0.95rem;
+      margin: 0;
+    }
+
+    .results-extra {
+      max-width: 800px;
+      margin: 2rem auto 0;
+      padding: 1.5rem;
+      background: var(--bg-light);
+      border-radius: 12px;
+    }
+
+    .results-extra ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .results-extra ul li {
+      padding: 0.75rem 0;
+      color: var(--text-light);
+      position: relative;
+      padding-left: 1.75rem;
+    }
+
+    .results-extra ul li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--primary-color);
+      font-weight: bold;
     }
 
     /* Services Section */
@@ -423,6 +550,7 @@
       <a href="#" class="logo">AssistPro Digital</a>
       <ul class="nav-links">
         <li><a href="#about">À propos</a></li>
+        <li><a href="#resultats">Résultats</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#tarifs">Tarifs</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -433,66 +561,124 @@
   <!-- Hero Section -->
   <section class="hero">
     <div class="hero-content">
-      <h1>Votre Assistante Virtuelle de Confiance</h1>
-      <p>Je vous accompagne dans la gestion de vos tâches administratives et organisationnelles pour vous permettre de vous concentrer sur l'essentiel : développer votre activité.</p>
-      <a href="#contact" class="cta-button">Me Contacter</a>
+      <p class="hero-tag">🌍 Office Manager Freelance | Assistante Administrative et Commerciale Externalisée</p>
+      <h1>Je gère votre administratif, vous vous concentrez à 100% sur votre expertise</h1>
+      <p>Gestion de Projet • Pré-comptabilité • Coordination d'Équipe • 30 ans d'expérience chez L'Oréal</p>
+      <a href="#contact" class="cta-button">Discutons de votre projet</a>
     </div>
+  </section>
+
+  <!-- Banner Image Section -->
+  <section class="banner-section">
+    <img src="banner-office-manager.jpeg" alt="Je gère ton administratif - Office Manager Freelance - Maîtrise SAP" class="banner-image">
   </section>
 
   <!-- About Section -->
   <section id="about">
     <h2 class="section-title">À Propos</h2>
-    <p class="section-subtitle">Une professionnelle à votre service</p>
+    <p class="section-subtitle">30 ans d'expertise au service de votre réussite</p>
     <div class="about-content">
-      <p>Assistante virtuelle passionnée et rigoureuse, je propose mes services aux entrepreneurs, TPE et PME souhaitant déléguer leurs tâches administratives et organisationnelles.</p>
-      <p>Mon objectif est de vous faire gagner du temps et de l'efficacité en prenant en charge les missions qui vous éloignent de votre cœur de métier. Disponible, réactive et organisée, je m'adapte à vos besoins spécifiques pour vous offrir un accompagnement sur mesure.</p>
+      <p><strong>Assistante de Direction polyvalente et proactive</strong> avec plus de 30 ans d'expérience au sein du groupe L'Oréal, j'apporte une véritable expertise en gestion administrative, coordination d'équipes, organisation, optimisation budgétaire et support opérationnel.</p>
+
+      <div class="strengths-grid">
+        <div class="strength-item">
+          <span class="strength-icon">🎯</span>
+          <h4>Autonomie totale</h4>
+          <p>J'ai toujours travaillé dans un climat de confiance avec mes managers, sans avoir besoin qu'on me dise quoi faire.</p>
+        </div>
+        <div class="strength-item">
+          <span class="strength-icon">💡</span>
+          <h4>Proactivité</h4>
+          <p>J'anticipe les besoins, crée des outils utiles et améliore les processus sans qu'on me le demande.</p>
+        </div>
+        <div class="strength-item">
+          <span class="strength-icon">💰</span>
+          <h4>Économies réelles</h4>
+          <p>Analyse des coûts, négociation, optimisation des budgets déplacements & événements.</p>
+        </div>
+        <div class="strength-item">
+          <span class="strength-icon">✨</span>
+          <h4>Sens du service et du détail</h4>
+          <p>Je garantis un fonctionnement fluide, fiable et professionnel.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Results Section -->
+  <section id="resultats">
+    <h2 class="section-title">Résultats Concrets</h2>
+    <p class="section-subtitle">Des économies et une efficacité mesurables</p>
+    <div class="results-grid">
+      <div class="result-card">
+        <div class="result-number">15%</div>
+        <p>d'économies/an sur l'organisation des séminaires (comparaison devis, négociation, mise en concurrence)</p>
+      </div>
+      <div class="result-card">
+        <div class="result-number">10%</div>
+        <p>d'économies sur les déplacements (analyses des vols/train et choix d'hôtels optimisés)</p>
+      </div>
+      <div class="result-card highlight">
+        <div class="result-number">ERP SAP</div>
+        <p>Maîtrise complète : création d'un guide d'utilisation pour permettre l'autonomie des équipes</p>
+      </div>
+      <div class="result-card">
+        <div class="result-number">-</div>
+        <p>Réduction notable des litiges commandes/livraisons grâce à un suivi rigoureux</p>
+      </div>
+    </div>
+    <div class="results-extra">
+      <ul>
+        <li>Mise en place de tableaux de bord clairs utilisés par les managers pour piloter les activités</li>
+        <li>Organisation d'événements, séminaires, comités, réunions internationales avec une gestion budgétaire optimisée</li>
+      </ul>
     </div>
   </section>
 
   <!-- Services Section -->
   <section id="services">
     <h2 class="section-title">Mes Services</h2>
-    <p class="section-subtitle">Des solutions adaptées à vos besoins</p>
+    <p class="section-subtitle">Une expertise complète en Full Remote</p>
     <div class="services-grid">
       <!-- Service 1 -->
       <div class="service-card">
-        <div class="service-icon">📋</div>
-        <h3>Gestion Administrative</h3>
-        <p>Prenez du recul sur vos tâches quotidiennes</p>
+        <div class="service-icon">💡</div>
+        <h3>Gestion de Projet</h3>
+        <p>Pilotez vos projets en toute sérénité</p>
         <ul>
-          <li>Traitement des emails et courriers</li>
-          <li>Gestion d'agenda et prise de rendez-vous</li>
-          <li>Rédaction de documents</li>
-          <li>Saisie et mise en forme de données</li>
-          <li>Classement et archivage</li>
+          <li>Coordination des équipes et parties prenantes</li>
+          <li>Suivi des délais et livrables</li>
+          <li>Création de tableaux de bord</li>
+          <li>Reporting et présentations</li>
+          <li>Optimisation des processus</li>
         </ul>
       </div>
 
       <!-- Service 2 -->
       <div class="service-card">
-        <div class="service-icon">💼</div>
-        <h3>Support Commercial</h3>
-        <p>Optimisez votre relation client</p>
+        <div class="service-icon">📊</div>
+        <h3>Pré-comptabilité</h3>
+        <p>Une gestion financière rigoureuse</p>
         <ul>
-          <li>Création et envoi de devis</li>
           <li>Suivi des factures et relances</li>
-          <li>Gestion de la base clients</li>
-          <li>Préparation de présentations</li>
-          <li>Suivi des commandes</li>
+          <li>Gestion des notes de frais</li>
+          <li>Préparation des éléments comptables</li>
+          <li>Analyse et optimisation des coûts</li>
+          <li>Suivi budgétaire</li>
         </ul>
       </div>
 
       <!-- Service 3 -->
       <div class="service-card">
-        <div class="service-icon">📱</div>
-        <h3>Community Management</h3>
-        <p>Développez votre présence en ligne</p>
+        <div class="service-icon">👥</div>
+        <h3>Coordination d'Équipe</h3>
+        <p>Une organisation fluide et efficace</p>
         <ul>
-          <li>Création de contenus</li>
-          <li>Planification des publications</li>
-          <li>Animation des réseaux sociaux</li>
-          <li>Réponse aux commentaires</li>
-          <li>Veille concurrentielle</li>
+          <li>Gestion des agendas multiples</li>
+          <li>Organisation des réunions</li>
+          <li>Suivi des actions et décisions</li>
+          <li>Interface entre les services</li>
+          <li>Support aux managers</li>
         </ul>
       </div>
 
@@ -500,41 +686,41 @@
       <div class="service-card">
         <div class="service-icon">🗓️</div>
         <h3>Organisation d'Événements</h3>
-        <p>Des événements réussis sans stress</p>
+        <p>Des événements maîtrisés et optimisés</p>
         <ul>
-          <li>Recherche de prestataires</li>
-          <li>Gestion des invitations</li>
-          <li>Coordination logistique</li>
-          <li>Suivi des inscriptions</li>
-          <li>Préparation des supports</li>
+          <li>Séminaires et comités de direction</li>
+          <li>Réunions internationales</li>
+          <li>Négociation prestataires</li>
+          <li>Gestion budgétaire optimisée</li>
+          <li>Coordination logistique complète</li>
         </ul>
       </div>
 
       <!-- Service 5 -->
       <div class="service-card">
         <div class="service-icon">✈️</div>
-        <h3>Gestion des Voyages</h3>
-        <p>Voyagez l'esprit tranquille</p>
+        <h3>Gestion des Déplacements</h3>
+        <p>10% d'économies en moyenne</p>
         <ul>
-          <li>Recherche et réservation de vols</li>
-          <li>Réservation d'hôtels</li>
+          <li>Analyse comparative vols/trains</li>
+          <li>Sélection d'hôtels optimisée</li>
           <li>Organisation d'itinéraires</li>
           <li>Gestion des notes de frais</li>
-          <li>Préparation des documents</li>
+          <li>Suivi des budgets déplacements</li>
         </ul>
       </div>
 
       <!-- Service 6 -->
       <div class="service-card">
-        <div class="service-icon">🔧</div>
-        <h3>Services Sur Mesure</h3>
-        <p>Des solutions personnalisées</p>
+        <div class="service-icon">💻</div>
+        <h3>Support ERP & Outils</h3>
+        <p>Maîtrise SAP et outils digitaux</p>
         <ul>
-          <li>Projets ponctuels</li>
-          <li>Missions spécifiques</li>
-          <li>Accompagnement personnalisé</li>
-          <li>Formation outils numériques</li>
-          <li>Consulting organisation</li>
+          <li>Gestion des commandes sur ERP (SAP)</li>
+          <li>Suivi des litiges et livraisons</li>
+          <li>Création de guides utilisateurs</li>
+          <li>Formation des équipes</li>
+          <li>Mise en place d'outils de pilotage</li>
         </ul>
       </div>
     </div>
